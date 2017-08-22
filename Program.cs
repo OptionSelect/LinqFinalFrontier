@@ -13,14 +13,20 @@ namespace LinqFinalFrontier
             spaceships.Add(new Spaceship());
             spaceships.Add(new Spaceship());
             spaceships.Add(new Spaceship());
+
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+
             spaceships.Add(new Spaceship());
             spaceships.Add(new Spaceship());
             spaceships.Add(new Spaceship());
             spaceships.Add(new Spaceship());
-            spaceships.Add(new Spaceship());
-            spaceships.Add(new Spaceship());
+            
+            
             Console.WriteLine($"{sumOfEarthShips(spaceships)} spaceships are staying home protecting Mother Earth!");
             sendShipsToFightMonsters(spaceships);
+            Console.WriteLine($"{findMostGunsWithSize(spaceships, 5).Name} is the biggest we've got!");
         }
         public static int sumOfEarthShips(List<Spaceship> ships)
         {
@@ -30,13 +36,17 @@ namespace LinqFinalFrontier
 
         public static void sendShipsToFightMonsters(List<Spaceship> ships)
         {
-            var totalFighterShips = ships.Where(w => w.HasWarpDrive).Select(s => s.Name).Count();
-            Console.WriteLine($"Sending {totalFighterShips} ships to fight!");
+            var FighterShips = ships.Where(w => w.HasWarpDrive).ToList();
+            foreach (Spaceship item in FighterShips)
+            {
+                item.fightSpaceMonster();
+            }
         }
 
         public static Spaceship findMostGunsWithSize(List<Spaceship> ships, int size)
         {
-            return null;
+            var FighterShips = ships.Where(s => s.Size == size).OrderByDescending(l => l.NumLasers).First();
+            return FighterShips;
         }
 
         public static IEnumerable<Spaceship> ExplorationFleet(List<Spaceship> ships)

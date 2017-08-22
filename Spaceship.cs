@@ -10,9 +10,7 @@ namespace LinqFinalFrontier
         public int Size { get; set; }
         public bool HasWarpDrive { get; set; }
         public String Name { get; set; }
-
-        int nameCounter = 0;
-
+        static int nameCounter = 0;
         private static String[] names = {"Enterprise", "Voyager", "Wuddship", "Ariel", "Pegasus",
                 "Defiant", "Valiant", "Victory", "Trafalgar", "Shadow"};
 
@@ -27,13 +25,12 @@ namespace LinqFinalFrontier
         public Spaceship()
         {
             var r = new Random();
-
+            
             this.NumLasers = r.Next(0, 20);
             this.Size = r.Next(0, 15);
             this.HasWarpDrive = r.Next(0, 100) % 2 == 0; ;
             this.Name = names[nameCounter];
             nameCounter++;
-            
         }
 
         public void fightSpaceMonster()
