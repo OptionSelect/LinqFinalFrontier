@@ -12,6 +12,8 @@ namespace LinqFinalFrontier
         public bool HasWarpDrive { get; set; }
         public String Name { get; set; }
 
+        int nameCounter = 0;
+
         private static String[] names = {"Enterprise", "Voyager", "Wuddship", "Ariel", "Pegasus",
                 "Defiant", "Valiant", "Victory", "Trafalgar", "Shadow"};
 
@@ -30,8 +32,8 @@ namespace LinqFinalFrontier
             this.NumLasers = r.Next(0, 20);
             this.Size = r.Next(0, 15);
             this.HasWarpDrive = r.Next(0, 100) % 2 == 0; ;
-            var nameCounter = 0;
             
+
             this.Name = names[nameCounter];
             nameCounter++;
         }
@@ -52,30 +54,10 @@ namespace LinqFinalFrontier
 
         public String toString()
         {
-            return $"Name:  {Name},  Number of Lasers: {NumLasers}, Size: {Size}, WarpDrive: {HasWarpDrive}";
+            return $"Name: {Name},  Number of Lasers: {NumLasers}, Size: {Size}, WarpDrive: {HasWarpDrive}";
         }
 
         //In Program.cs Write these functions using functional programming:
-        public static int sumOfEarthShips(List<Spaceship> ships)
-        {
-            return -1;
-        }
-
-        public static void sendShipsToFightMonsters(List<Spaceship> ships)
-        {
-
-        }
-
-        public static Spaceship findMostGunsWithSize(List<Spaceship> ships, int size)
-        {
-            return null;
-        }
-
-        public static IEnumerable<Spaceship> ExplorationFleet(List<Spaceship> ships)
-        {
-            return null;
-        }
+        
     }
-
-}
 }
