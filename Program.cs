@@ -27,6 +27,12 @@ namespace LinqFinalFrontier
             Console.WriteLine($"{sumOfEarthShips(spaceships)} spaceships are staying home protecting Mother Earth!");
             sendShipsToFightMonsters(spaceships);
             Console.WriteLine($"{findMostGunsWithSize(spaceships, 5).Name} is the biggest we've got!");
+           
+            foreach (var item in ExplorationFleet(spaceships))
+            {
+                Console.WriteLine($"{item.Name} is a valued member of the exploration fleet.");
+            }
+            
         }
         public static int sumOfEarthShips(List<Spaceship> ships)
         {
@@ -51,7 +57,8 @@ namespace LinqFinalFrontier
 
         public static IEnumerable<Spaceship> ExplorationFleet(List<Spaceship> ships)
         {
-            return null;
+            var WimpyShips = ships.Where(w => w.HasWarpDrive).OrderBy(s => s.NumLasers).Take(5).ToList();
+            return WimpyShips;
         }
     }
 }

@@ -47,7 +47,7 @@ namespace LinqFinalFrontier
             }
         }
 
-        public String toString()
+        public override String ToString()
         {
             return $"Name: {Name},  Number of Lasers: {NumLasers}, Size: {Size}, WarpDrive: {HasWarpDrive}";
         }
