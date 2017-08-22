@@ -9,9 +9,18 @@ namespace LinqFinalFrontier
     {
         static void Main(string[] args)
         {
-            List<Spaceship> spaceships = new List<Spaceship>();
-            Console.WriteLine(sumOfEarthShips(spaceships));
-            
+            var spaceships = new List<Spaceship>();
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            spaceships.Add(new Spaceship());
+            Console.WriteLine($"{sumOfEarthShips(spaceships)} spaceships are staying home protecting Mother Earth!");
+            sendShipsToFightMonsters(spaceships);
         }
         public static int sumOfEarthShips(List<Spaceship> ships)
         {
@@ -22,7 +31,7 @@ namespace LinqFinalFrontier
         public static void sendShipsToFightMonsters(List<Spaceship> ships)
         {
             var totalFighterShips = ships.Where(w => w.HasWarpDrive).Select(s => s.Name).Count();
-            Console.WriteLine("Sending ships to fight!");
+            Console.WriteLine($"Sending {totalFighterShips} ships to fight!");
         }
 
         public static Spaceship findMostGunsWithSize(List<Spaceship> ships, int size)

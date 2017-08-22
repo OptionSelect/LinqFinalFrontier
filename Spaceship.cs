@@ -6,7 +6,6 @@ namespace LinqFinalFrontier
 {
     public class Spaceship
     {
-
         public int NumLasers { get; set; }
         public int Size { get; set; }
         public bool HasWarpDrive { get; set; }
@@ -32,10 +31,9 @@ namespace LinqFinalFrontier
             this.NumLasers = r.Next(0, 20);
             this.Size = r.Next(0, 15);
             this.HasWarpDrive = r.Next(0, 100) % 2 == 0; ;
-            
-
             this.Name = names[nameCounter];
             nameCounter++;
+            
         }
 
         public void fightSpaceMonster()
@@ -58,6 +56,6 @@ namespace LinqFinalFrontier
         }
 
         //In Program.cs Write these functions using functional programming:
-        
+
     }
 }
